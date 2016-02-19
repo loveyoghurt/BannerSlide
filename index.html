@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .point {
+            border-radius: 50%;
+            -webkit-border-radius: 50%;
+            -ms-border-radius: 50%;
+            height: 20px;
+            width: 20px;
+            background: #ff0000;
+            margin-right: 7px;
+            display: inline-block;
+        }
+
+        .serialNum .selected {
+            background: #e2ae30;
+        }
+
+        ul {
+            list-style-type: none;
+            display: block;
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+            -webkit-margin-start: 0px;
+            -webkit-margin-end: 0px;
+            -webkit-padding-start: 0px;
+        }
+
+        li {
+            width: 100%;
+            float: left;
+            left: 0px;
+            position: relative;
+        }
+
+        li img {
+            width: 100%;
+        }
+
+        #serialNum {
+            position: absolute;
+            bottom: 15px;
+            left: 50%;
+        }
+    </style>
+    <script src="lib/Rundiv.js"></script>
+</head>
+<body>
+<div id="run_banner" style="overflow: hidden; visibility: hidden;  position: relative;  width: 100%">
+    <div id="main_image" style="overflow: hidden; position: relative; width: 100%">
+        <ul>
+            <li>
+                <img src="images/1.png"/>
+            </li>
+            <li>
+                <img src="images/2.png"/>
+            </li>
+            <li>
+                <img src="images/3.png"/>
+            </li>
+        </ul>
+        <!--点点-->
+        <div id="serialNum" class="serialNum">
+            <div id="navbar">
+                <div class="point selected"></div>
+                <div class="point"></div>
+                <div class="point"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var elem = document.getElementById('main_image');
+    var run_banner = Rundiv(elem, {
+        hasNav: true,
+        startSlide: 1,
+        auto: 4000,
+        continuous: true
+        // disableScroll: true,
+        // stopPropagation: true,
+        // callback: function(index, element) {},
+        // transitionEnd: function(index, element) {}
+    });
+    //联动示意页数的点点
+    if (run_banner) {
+        run_banner.linkNav("navbar");
+    }
+
+</script>
+</body>
+</html>
